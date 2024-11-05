@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Chat Box with Navbar</title>
+    <style>
+        /* Full background */
+        body, html {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background-image: url('images/ELECTION\ AI.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, rgb(255, 255, 255), blue);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Social icons in navbar */
+        .navbar a {
+            display: inline-block;
+            width: 50px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect on icons */
+        .navbar a:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        /* Centered chat container */
+        .chat-box {
+            width: 90%;
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 50px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        /* Chat display area */
+        .chat-container {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        /* Input container */
+        .input-container {
+            display: flex;
+        }
+
+        /* Input box styling */
+        .input-box {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Send button styling */
+        .send-button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top-right Navbar with Social Links -->
+    <div class="navbar">
+
+        <a href="https://www.twitter.com" target="_blank">
+            <img src="images/Untitled_Project__10_-removebg-preview.png" alt="Twitter"> <!-- Replace with your Twitter icon -->
+        </a>
+        <a href="https://t.me/+xGCJQeShKA4wNzU0" target="_blank">
+            <img src="images/Untitled_Project__11_-removebg-preview.png" alt="Instagram"> <!-- Replace with your Instagram icon -->
+        </a>
+    </div>
+
+    <!-- Centered chat box -->
+    <div class="chat-box">
+        <!-- Chat container -->
+        <div class="chat-container" id="chatContainer">
+        </div>
+
+        <!-- Input container -->
+        <div class="input-container">
+            <input type="text" id="userInput" class="input-box" placeholder="Type your message here...">
+            <button onclick="sendMessage()" class="send-button">$BALAI</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const inputBox = document.getElementById('userInput');
+            const chatContainer = document.getElementById('chatContainer');
+            const userMessage = inputBox.value.trim();
+
+            // Check if there's a message to send
+            if (userMessage) {
+                // Display user's message
+                const userMessageElement = document.createElement('div');
+                userMessageElement.textContent = "You: " + userMessage;
+                chatContainer.appendChild(userMessageElement);
+
+                // Display the "PAD" response
+                const responseElement = document.createElement('div');
+                responseElement.textContent = "TRUMP";
+                responseElement.style.color = "lightblue";
+                chatContainer.appendChild(responseElement);
+
+                // Clear the input box
+                inputBox.value = "";
+
+                // Auto-scroll to the latest message
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
